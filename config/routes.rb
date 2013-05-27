@@ -1,4 +1,6 @@
 TestRorProject::Application.routes.draw do
+  get "main_page_and_registration/HomePage"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

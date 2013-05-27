@@ -1,0 +1,2 @@
+module MainPageAndRegistrationHelper
+end
