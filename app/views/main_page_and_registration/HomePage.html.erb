@@ -1,2 +1,9 @@
-<h1>MainPageAndRegistration#HomePage</h1>
-<p>Find me in app/views/main_page_and_registration/HomePage.html.erb</p>
+<div class="container">
+	<form class="form-singin">
+		<h2 class="form-signin-heading">Please, sign in</h2>
+		<input type="text" class "input-block_level" placeholder="Email address">
+		<input type="text" class="input-block_level" placeholder="Password">
+		<div><%= link_to "register", '#', class: "register" %></div>
+		<div><%= link_to "Sign in", '#', class: "btn btn-large btn-primary signin" %></div>
+	</form>
+</div>
