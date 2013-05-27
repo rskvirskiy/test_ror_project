@@ -1,9 +1,24 @@
-<div class="container">
-	<form class="form-singin">
-		<h2 class="form-signin-heading">Please, sign in</h2>
-		<input type="text" class "input-block_level" placeholder="Email address">
-		<input type="text" class="input-block_level" placeholder="Password">
-		<div><%= link_to "register", '#', class: "register" %></div>
-		<div><%= link_to "Sign in", '#', class: "btn btn-large btn-primary signin" %></div>
+
+	<form class="form-horizontal">
+		<div class="control-group">
+			<label class="control-label" for="inputEmail"
+			>Email</label>
+			<div class="controls">
+				<input type="text" id="inputEmail" placeholder="Email">
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="inputPassword"
+			>Password</label>
+			<div class="controls">
+				<input type="password" id="inputPassword" placeholder="Password">
+			</div>
+		</div>
+		<div class="control-group">
+		<div class="controls">
+			<%= link_to "register",    '#', class: "reg" %>
+			<br>
+			<%= link_to "Sign in",    '#', class:  "btn btn-large btn-primary"%>
+		</div>
+		</div>
 	</form>
-</div>
