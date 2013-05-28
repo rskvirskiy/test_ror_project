@@ -7,4 +7,6 @@ class User < ActiveRecord::Base
 
   validates: :login, presence: true, length: { maximum: 30 }, uniqueness: true
   validates: :fullname, presence: true, length: { maximum: 50 }
+
+  before_save { |user| user.email = email.downcase }
 end
