@@ -1,5 +1,11 @@
 TestRorProject::Application.routes.draw do
+  get "users/new"
+
   get "main_page_and_registration/HomePage"
+
+  resources :users
+
+  match '/signup', to: 'users#new'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
