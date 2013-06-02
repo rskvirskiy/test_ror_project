@@ -1,8 +1,10 @@
 TestRorProject::Application.routes.draw do
+  root :to => 'utils#home'
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
 
+  match 'utils/home', to: 'utils#home'
   match '/about',   to: 'utils#about'
   match '/signup', to: 'users#new'
   match '/signin', to: 'sessions#new'
