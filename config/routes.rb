@@ -1,5 +1,4 @@
 TestRorProject::Application.routes.draw do
-  get "main_page_and_registration/HomePage"
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
