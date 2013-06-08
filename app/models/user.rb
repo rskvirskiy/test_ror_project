@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   attr_accessible :address, :city, :country, :email, :fullname, :login, :state, :zip, :password, :password_confirmation
   has_secure_password
+  geocoded_by :full_address
+  after_validation :geocode
 
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -19,6 +21,10 @@ class User < ActiveRecord::Base
 
   def create_remember_token
   	self.remember_token = SecureRandom.urlsafe_base64
+  end
+
+  def full_address
+    "#{address}, #{city}, #{state}, #{zip}, #{country}"
   end
 
 end

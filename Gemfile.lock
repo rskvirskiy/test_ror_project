@@ -54,6 +54,7 @@ GEM
     execjs (1.4.0)
       multi_json (~> 1.0)
     ffi (1.8.1)
+    geocoder (1.1.8)
     hike (1.2.3)
     i18n (0.6.1)
     journey (1.0.4)
@@ -66,7 +67,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.23)
     multi_json (1.7.6)
-    nokogiri (1.5.9)
+    nokogiri (1.5.10)
     pg (0.15.1)
     polyglot (0.3.3)
     rack (1.4.5)
@@ -144,6 +145,7 @@ DEPENDENCIES
   bootstrap-sass (= 2.2.1)
   capybara (= 1.1.2)
   coffee-rails (= 3.2.2)
+  geocoder
   jquery-rails (= 2.0.2)
   pg
   rails (= 3.2.13)
