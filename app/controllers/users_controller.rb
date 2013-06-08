@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
 	def show
 		@user = User.find(params[:id])
+		gon.latitude = @user.latitude
+		gon.longitude = @user.longitude
+		gon.description = @user.fullname
 	end
 
 	def create
