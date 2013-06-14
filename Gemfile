@@ -6,7 +6,6 @@ gem 'bcrypt-ruby', '3.0.1'
 gem 'pg'
 gem 'geocoder'
 gem 'gon'
-gem 'omniauth'
 gem 'omniauth-twitter'
 
 # Bundle edge Rails instead:
