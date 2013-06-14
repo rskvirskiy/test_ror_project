@@ -1,9 +1,12 @@
 TestRorProject::Application.routes.draw do
+  resources :authentications
+
   root :to => 'utils#home'
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
 
+  match 'auth/:provider/callback', to: 'authentications#create'
   match 'utils/home', to: 'utils#home'
   match '/about',   to: 'utils#about'
   match '/signup', to: 'users#new'

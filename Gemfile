@@ -6,6 +6,7 @@ gem 'bcrypt-ruby', '3.0.1'
 gem 'pg'
 gem 'geocoder'
 gem 'gon'
+gem 'nifty-generators', :group => :development
 gem 'omniauth-twitter'
 
 # Bundle edge Rails instead:
@@ -31,3 +32,5 @@ group :test do
 end
 
 
+
+gem "mocha", :group => :test
