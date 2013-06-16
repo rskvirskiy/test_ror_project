@@ -8,7 +8,7 @@ class AuthenticationsController < ApplicationController
     if @user=User.find_by_login(auth[:info][:nickname]) #if we have this user
       sign_in @user
     else #if we don't have, we'll create this user
-      @user = User.new(login: auth[:info][:nickname].to_s, fullname: auth[:info][:name].to_s, email: "example@twitter.com", password: "foobar", password_confirmation: "foobar" );
+      @user = User.new(login: auth[:info][:nickname].to_s, fullname: auth[:info][:name].to_s, email: auth[:info][:nickname].to_s + "@test.com", password: "foobar", password_confirmation: "foobar" );
       if @user.save
         sign_in @user
       else
