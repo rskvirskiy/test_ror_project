@@ -17,25 +17,20 @@
 var centerLatitude = gon.latitude;
 var centerLongitude = gon.longitude;
 var description = gon.fullname;
-var startZoom = 13;
-var map;
 
-function addMarker(latitude, longitude, description) {
-	var marker = new GMarker(new GLatLng(latitude, longitude));
-	GEvent.addListener(marker, 'click',function() {
-		marker.openInfoWindowHtml(description);});
-	map.addOverlay(marker);
+function initialize() {
+	  var myLatlng = new google.maps.LatLng(centerLatitude,centerLongitude);
+	  var mapOptions = {
+	    zoom: 13,
+	    center: myLatlng,
+	    mapTypeId: google.maps.MapTypeId.ROADMAP
+	  }
+	  var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+	  var marker = new google.maps.Marker({
+	      position: myLatlng,
+	      map: map,
+	      title: description
+	  });
 }
 
-function init() {
-	if (GBrowserIsCompatible()) {
-	map = new GMap2(document.getElementById("map"));
-	map.addControl(new GSmallMapControl());
-	map.setCenter(new GLatLng(centerLatitude, centerLongitude), startZoom);
-	addMarker(centerLatitude, centerLongitude, description);
-	}
-}
-
-window.onload = init;
-window.onunload = GUnload;
-
+window.onload = initialize;
