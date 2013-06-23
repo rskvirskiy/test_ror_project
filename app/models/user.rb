@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :authentications
+  has_many :authentications, dependent: :destroy
+  has_many :microposts, dependent: :destroy
   attr_accessible :address, :city, :country, :email, :fullname, :login, :state, :zip, :password, :password_confirmation
   has_secure_password
   geocoded_by :full_address

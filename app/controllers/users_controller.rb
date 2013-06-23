@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
+		@microposts = @user.microposts.paginate(page: params[:page])
 		gon.latitude = @user.latitude
 		gon.longitude = @user.longitude
 		gon.description = @user.fullname.to_s
