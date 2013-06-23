@@ -5,7 +5,6 @@ class AuthenticationsController < ApplicationController
 
   def create
     auth = request.env["omniauth.auth"]
-    render :text => auth.to_yaml
     if @user=User.find_by_login(auth[:info][:nickname]) #if we have this user
       sign_in @user
     else #if we don't have, we'll create this user

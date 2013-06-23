@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(:version => 20130620154032) do
   create_table "users", :force => true do |t|
     t.string   "login"
     t.string   "fullname"
-    t.time     "birthday"
     t.string   "email"
     t.string   "address"
     t.string   "city"

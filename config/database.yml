@@ -4,6 +4,8 @@ development:
   database: appname_development
   pool: 5
   timeout: 5000
+  username: skvirskiy
+  password:
 
 test:
   adapter: postgresql
@@ -11,6 +13,8 @@ test:
   database: appname_test
   pool: 5
   timeout: 5000
+  username: skvirskiy
+  password:
 
 production:
   adapter: postgresql
