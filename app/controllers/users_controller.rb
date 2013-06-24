@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
+		@microposts = @user.microposts.paginate(page: params[:page])
 		gon.latitude = @user.latitude
 		gon.longitude = @user.longitude
 		gon.description = @user.fullname.to_s
@@ -51,12 +52,7 @@ class UsersController < ApplicationController
 
 	private
 
-		def signed_in_user
-			unless signed_in?
-				store_location
-				redirect_to sign_in_url, notice: "Please sign in."
-			end
-		end
+
 
 		def correct_user
 			@user = User.find(params[:id])

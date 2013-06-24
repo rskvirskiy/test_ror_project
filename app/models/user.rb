@@ -1,10 +1,10 @@
 class User < ActiveRecord::Base
-  has_many :authentications
+  has_many :authentications, dependent: :destroy
+  has_many :microposts, dependent: :destroy
   attr_accessible :address, :city, :country, :email, :fullname, :login, :state, :zip, :password, :password_confirmation
   has_secure_password
   geocoded_by :full_address
   after_validation :geocode
-
 
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -18,6 +18,10 @@ class User < ActiveRecord::Base
 
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
+
+  def feed
+    Micropost.where("user_id = ?", id)
+  end
 
   private
 
