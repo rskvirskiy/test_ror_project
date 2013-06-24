@@ -6,7 +6,6 @@ class User < ActiveRecord::Base
   geocoded_by :full_address
   after_validation :geocode
 
-
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
@@ -19,6 +18,10 @@ class User < ActiveRecord::Base
 
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
+
+  def feed
+    Micropost.where("user_id = ?", id)
+  end
 
   private
 
