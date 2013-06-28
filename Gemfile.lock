@@ -75,7 +75,6 @@ GEM
     mocha (0.14.0)
       metaclass (~> 0.0.1)
     multi_json (1.7.7)
-    nifty-generators (0.4.6)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     oauth (0.4.7)
@@ -163,7 +162,6 @@ DEPENDENCIES
   gon (= 4.1.1)
   jquery-rails (= 3.0.1)
   mocha
-  nifty-generators
   omniauth-twitter (= 0.0.17)
   pg (= 0.15.1)
   rails (= 3.2.13)

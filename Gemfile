@@ -7,7 +7,6 @@ gem 'pg', '0.15.1'
 gem 'geocoder', '1.1.8'
 gem 'gon', '4.1.1'
 gem 'faker', '1.1.2'
-gem 'nifty-generators', :group => :development
 gem 'omniauth-twitter','0.0.17'
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'

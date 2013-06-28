@@ -1,11 +1,18 @@
 TestRorProject::Application.routes.draw do
   resources :authentications
 
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+
   root :to => 'utils#home'
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
 
   match 'auth/:provider/callback', to: 'authentications#create'
   match 'utils/home', to: 'utils#home'
