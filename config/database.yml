@@ -7,7 +7,7 @@ development:
   username: skvirskiy
   password:
 
-test:
+test: &test
   adapter: postgresql
   encoding: unicode
   database: appname_test
@@ -21,3 +21,6 @@ production:
   database: appname_production
   pool: 5
   timeout: 5000
+
+cucumber:
+  <<: *test

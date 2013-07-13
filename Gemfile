@@ -15,7 +15,10 @@ gem 'bootstrap-will_paginate', '0.0.9'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development, :test do
-  gem 'rspec-rails','2.13.2'
+  gem 'rspec-rails','2.11.0'
+  gem 'guard-rspec', '1.2.1'
+  gem 'guard-spork', '1.2.0'
+  gem 'spork', '0.9.2'
 end
 
 
@@ -30,9 +33,11 @@ end
 gem 'jquery-rails','3.0.1'
 
 group :test do
-  gem 'capybara','2.1.0'
+  gem 'capybara','1.1.2'
+  gem 'rb-inotify', '0.8.8'
+  gem 'libnotify', '0.5.9'
+  gem 'factory_girl_rails', '4.1.0'
+  gem 'cucumber-rails', '1.2.1', require: false
+  gem 'database_cleaner', '0.7.0'
 end
 
-
-
-gem "mocha", :group => :test
