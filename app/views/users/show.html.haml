@@ -1,0 +1,18 @@
+- provide(:title, @user.fullname)
+.row
+  %aside.span4
+    %section
+      %h1
+        = gravatar_for @user
+        = @user.fullname
+    %section
+      = render 'shared/stats'
+  .span8
+    = render 'follow_form' if signed_in?
+    %h3
+      Microposts (#{@user.microposts.count})
+    %ol.microposts
+      = render @microposts
+    = will_paginate @microposts
+.map_container
+  #map
