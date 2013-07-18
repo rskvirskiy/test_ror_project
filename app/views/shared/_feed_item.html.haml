@@ -2,7 +2,7 @@
   = link_to gravatar_for(feed_item.user), feed_item.user
   %span.user
     = link_to feed_item.user.fullname, feed_item.user
-  %span.content= feed_item.content
+  %span.content= RedCloth.new(feed_item.content).to_html.html_safe
   %span.timestamp
     Posted: #{time_ago_in_words(feed_item.created_at)} ago.
   - if current_user?(feed_item.user)

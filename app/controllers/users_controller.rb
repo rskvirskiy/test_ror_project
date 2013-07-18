@@ -67,6 +67,11 @@ class UsersController < ApplicationController
 
 	private
 
+		def parsed_text(user)
+			@parsed = user.microposts
+
+		end
+
 		def correct_user
 			@user = User.find(params[:id])
 			redirect_to(root_path) unless current_user?(@user)
@@ -75,4 +80,6 @@ class UsersController < ApplicationController
 		def admin_user
 			redirect_to(root_path) unless current_user.admin?
 		end
+
 end
+
