@@ -3,6 +3,7 @@
   %span.user
     = link_to feed_item.user.fullname, feed_item.user
   %span.content= RedCloth.new(feed_item.content).to_html.html_safe
+  %span.picture= image_tag feed_item.pic.url(:medium) unless feed_item.pic.url == "empty"
   %span.timestamp
     Posted: #{time_ago_in_words(feed_item.created_at)} ago.
   - if current_user?(feed_item.user)

@@ -161,30 +161,33 @@ input {
 }
 
 /* typography */
+.typogr {
+  
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1;
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1;
-}
+  h1 {
+    font-size: 3em;
+    letter-spacing: -2px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
 
-h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
-  text-align: center;
-}
+  h2 {
+    font-size: 1.7em;
+    letter-spacing: -1px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: normal;
+    color: #999;
+  }
 
-h2 {
-  font-size: 1.7em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-  color: #999;
-}
+  p {
+    font-size: 1.1em;
+    line-height: 1.7em;
+  }
 
-p {
-  font-size: 1.1em;
-  line-height: 1.7em;
 }
 
 /* map */
@@ -268,4 +271,10 @@ aside {
   .gravatar {
     margin: 1px 1px;
   }
+}
+
+/* butons */
+
+.btn_for_pic {
+  margin-bottom: 10px;
 }

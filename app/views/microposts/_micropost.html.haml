@@ -1,6 +1,6 @@
 %li
-  %span.content
-    = RedCloth.new(micropost.content).to_html.html_safe
-  %span.timestamp= time_ago_in_words(micropost.created_at)
-  - if current_user?(micropost.user)
-    = link_to "delete", micropost, method: :delete, data: { confirm: "You sure?" }, title: micropost.content
+	%span.content= RedCloth.new(micropost.content).to_html.html_safe
+	%span.picture=  image_tag micropost.pic.url(:medium) unless micropost.pic.url == "empty"
+	%span.timestamp= time_ago_in_words(micropost.created_at)
+	- if current_user?(micropost.user)
+		= link_to "delete", micropost, method: :delete, data: { confirm: "You sure?" }, title: micropost.content
