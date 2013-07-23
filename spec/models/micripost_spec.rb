@@ -10,6 +10,7 @@ describe Micropost do
 
 	it { should respond_to(:content) }
 	it { should respond_to(:user_id) }
+	it { should respond_to(:comments) }
 	it { should respond_to(:user) }
 	its (:user) { should == user }
 
@@ -42,4 +43,5 @@ describe Micropost do
 		before { @micropost.content = "a" * 141 }
 		it { should_not be_valid }
 	end
+
 end

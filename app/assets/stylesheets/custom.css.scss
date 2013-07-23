@@ -273,8 +273,22 @@ aside {
   }
 }
 
-/* butons */
+/* buttons */
 
 .btn_for_pic {
   margin-bottom: 10px;
+}
+
+/* comments */
+
+.comment {
+  display: none;
+  background: #def3ca;
+  margin: 3px;
+  text-align: center;
+}
+
+.comments_counter {
+  color: #9999ff;
+  font-family: fantasy;
 }

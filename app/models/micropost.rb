@@ -1,6 +1,7 @@
 class Micropost < ActiveRecord::Base
   attr_accessible :content, :pic
   belongs_to :user
+  has_many :comments, dependent: :destroy
   has_attached_file :pic, :styles => { :medium => "300x300>", :thumb => "100x100>" }, default_url: "empty"
 
   validates :content, presence: true, length: { maximum: 140 }

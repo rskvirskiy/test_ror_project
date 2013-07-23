@@ -3,6 +3,7 @@ namespace :db do
 	task populate: :environment do
 		make_users
 		make_microposts
+		make_comments
 		make_relationships
 	end
 end
@@ -25,6 +26,16 @@ def make_microposts
 			content = Faker::Lorem.sentence(5)
 			users.each {|user| user.microposts.create(content:content)}
 		end
+end
+
+def make_comments
+	microposts = Micropost.all(limit: 30)
+	microposts.each do |micropost|
+		4.times do
+			content = Faker::Lorem.sentence(5)
+			micropost.comments.create(content: content)
+		end
+	end
 end
 
 def make_relationships
