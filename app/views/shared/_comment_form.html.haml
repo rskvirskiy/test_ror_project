@@ -10,8 +10,9 @@
 %ol.comments
 	- object.comments.each do |comment|
 		= render '/comments/comment', object: comment
-= form_for(object.comments.build(micropost_id: object.id)) do |f|
+= form_for(object.comments.build(micropost_id: object.id, by: current_user.fullname)) do |f|
 	%div= f.hidden_field :micropost_id
+	%div= f.hidden_field :by
 	.field_for_comment{:id => "field" + object.id.to_s}
 		= f.text_area :content, placeholder: "Compose new comment"
 		= f.submit "Post comment", class: "btn btn-primary"

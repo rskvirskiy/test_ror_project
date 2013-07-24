@@ -1,7 +1,7 @@
 .comment{:id => object.micropost.id}
 	%li
 		%span.content= object.content
-		%span.timestamp= object.micropost.user.fullname
+		%span.timestamp= object.by
 		%span.timestamp= time_ago_in_words(object.created_at)
 		-#- if current_user?(object.micropost.user)
 			= link_to "delete", object, method: :delete, data: { confirm: "You sure?" }, title: object.content
