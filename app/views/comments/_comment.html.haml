@@ -2,6 +2,17 @@
 	%li
 		%span.content= object.content
 		%span.timestamp By #{object.by}:
-		%span.timestamp  #{time_ago_in_words(object.created_at)} ago.
+		%span.timestamp  #{time_ago_in_words(object.created_at)} ago
 		-if current_user?(object.user)
 			= link_to "delete", object, method: :delete, data: { confirm: "You sure?" }, title: object.content
+			%button.btn{:id => "update_comment" + object.id.to_s} Edit
+			= form_for(object) do |f|
+				.field_for_update{:id => "ufield" + object.id.to_s}
+					= f.text_field :content
+					= f.submit "Save", class: "btn btn-primary"
+
+
+:javascript
+	$("#update_comment#{object.id}").click( function () {
+		$("#ufield#{object.id}").toggle(500);
+	});

@@ -13,7 +13,7 @@ TestRorProject::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
-  resources :comments, only: [:create, :destroy]
+  resources :comments, only: [:create, :destroy, :update]
 
   match 'auth/:provider/callback', to: 'authentications#create'
   match 'utils/home', to: 'utils#home'
