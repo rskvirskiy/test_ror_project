@@ -35,4 +35,21 @@ function initialize() {
 
 window.onload = initialize;
 
+$( function () {
+	$(".showr").on("click", function () {
+		$(this).parent().find(".comments").show(500);
+	});
+
+	$(".hider").on("click", function () {
+		$(this).parent().find(".comments").hide(500);
+	});
+
+	$(".new_com").on("click", function () {
+		$(this).parent().find(".field_for_comment").toggle(500);
+	});
+
+	$(".update_comment").on("click", function () {
+		$(this).parent().find(".field_for_update").toggle(500);
+	});
+});
 

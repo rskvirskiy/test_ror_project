@@ -281,11 +281,9 @@ aside {
 
 /* comments */
 
-.comment {
+.comments {
   display: none;
-  background: #def3ca;
-  margin: 3px;
-  text-align: center;
+  list-style-type: none;
 }
 
 .comments_counter {
@@ -302,4 +300,5 @@ aside {
 
 .field_for_update {
   display: none;
+  margin-top: 10px;
 }

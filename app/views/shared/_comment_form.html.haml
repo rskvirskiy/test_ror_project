@@ -1,39 +1,18 @@
 -if object.comments.any?
 	.comments_counter 
 		Comments (#{object.comments.count})
-	%button.btn.showr{:id => "showr" + object.id.to_s} Show
-	%button.btn.hider{:id => "hider" + object.id.to_s} Hide
-	%button.btn.btn-primary.new_com{"data-id" => object.id, :id => "new_comment" + object.id.to_s} New
+	%button.btn.showr Show
+	%button.btn.hider Hide
+	%button.btn.btn-primary.new_com New
 -else
 	%br
-	%button.btn.btn-primary.new_com{"data-id" => object.id, :id => "new_comment" + object.id.to_s} New comment
+	%button.btn.btn-primary.new_com New comment
 %ol.comments
 	- object.comments.each do |comment|
 		= render '/comments/comment', object: comment
 = form_for(object.comments.build(micropost_id: object.id, user_id: current_user.id)) do |f|
 	%div= f.hidden_field :micropost_id
 	%div= f.hidden_field :user_id
-	.field_for_comment{"data-id" => object.id, :id => "field" + object.id.to_s}
+	.field_for_comment
 		= f.text_area :content, placeholder: "Compose new comment"
 		= f.submit "Post comment", class: "btn btn-primary"
-
-:javascript
-
-
-	$( function () {
-		$("#showr#{object.id}").click( function () {
-			$("##{object.id}").first().show(100, function showNext() {
-				$(this).next(".comment##{object.id}").show(100, showNext);
-			});
-		});
-
-		$("#hider#{object.id}").click(function () {
-			$("##{object.id}").first().hide(100, function hideNext() {
-				$(this).next(".comment##{object.id}").hide(100, hideNext);
-			});
-		});
-
-		$("#new_comment#{object.id}").click( function () {
-			$("#field#{object.id}").toggle(500);
-		});
-	});

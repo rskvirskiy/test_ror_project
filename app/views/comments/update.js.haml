@@ -1,4 +1,4 @@
 $("#comment_content#{@comment.id}").html("#{escape_javascript(@comment.content)}");
-$("#ufield#{@comment.id}").hide(500);
+$(".field_for_update").hide(500);
 $(".msg").html("#{escape_javascript(render('shared/messages'))}");
 $(".msg").delay(2000).hide(1000);
