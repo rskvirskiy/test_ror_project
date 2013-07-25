@@ -17,13 +17,17 @@ class CommentsController < ApplicationController
 	end
 
 	def update
-		comment = Comment.find(params[:id])
-		if comment.update_attributes(params[:comment])
+		@comment = Comment.find(params[:id])
+		if @comment.update_attributes(params[:comment])
 			flash[:success] = "Comment updated"
 		else
 			flash[:error] = "Comment wasn't updated"
 		end 
-		redirect_to comment.micropost.user
+		respond_to do |format|
+			format.html { redirect_to @comment.micropost.user }
+			format.js 
+		end
+
 	end
 
 	private
