@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
 	before_filter :correct_user, only: :destroy
 
 	def create
-		@comment = Micropost.find(params[:comment][:micropost_id]).comments.create(content: params[:comment][:content], by: params[:comment][:by])
+		@comment = Micropost.find(params[:comment][:micropost_id]).comments.create(params[:comment])
 		if @comment.save
 			flash[:success] = "Comment created!"
 			redirect_to @comment.micropost.user
@@ -11,6 +11,9 @@ class CommentsController < ApplicationController
 	end
 
 	def destroy
+		user = Comment.find(params[:id]).micropost.user
+		Comment.find(params[:id]).destroy
+		redirect_to user
 	end
 
 	private

@@ -33,7 +33,7 @@ def make_comments
 	microposts.each do |micropost|
 		4.times do
 			content = Faker::Lorem.sentence(5)
-			micropost.comments.create(content: content, by: "mister example")
+			micropost.comments.create(content: content, user_id: User.first.id)
 		end
 	end
 end
